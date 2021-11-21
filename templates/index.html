@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Blood Donation Prediction System</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="/static/stylesheet.css">
+  
+</head>
+
+<body>
+ <div class="login" id="login">
+	<h1>Predict Salary Analysis</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post" class="form">
+    	<input class="enter" type="text" name="months_since_last" placeholder="Months since last donation" required="required" size="30" height="10px"/>
+        <input class="enter" type="text" name="no_of_donations" placeholder="No. of Donations" required="required" size="30"/>
+		<input class="enter" type="text" name="total_volume" placeholder="Total Volume Donated(c.c.)" required="required" size="30"/>
+        <input class="enter" type="text" name="months_since_first" placeholder="Months since first donation" required="required" size="30" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <h3>If output = 1 : The donor will donate</h3>
+   <h3>If output = 0 : The donor will not donate</h3>
+   <br>
+   <br>
+   <br>
+   <h2>{{ prediction_text }}</h2>
+
+ </div>
+
+
+</body>
+</html>
